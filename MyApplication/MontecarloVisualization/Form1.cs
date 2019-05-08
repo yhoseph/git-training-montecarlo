@@ -45,7 +45,7 @@ namespace MontecarloVisualization
             int w = this.picCanvas.Width;
             int h = this.picCanvas.Height;
 
-            graphics.DrawEllipse(Pens.Red, 0, 0, w, h);
+            graphics.DrawEllipse(Pens.Blue, 0, 0, w, h);
 
             for (int i = 0; i < montecarlo.Points.Count; i++)
             {
@@ -54,7 +54,7 @@ namespace MontecarloVisualization
                 float drawX = w / 2 + cPoint.X * w;
                 float drawY = h / 2 + cPoint.Y * h;
 
-                graphics.DrawEllipse(Pens.Blue, drawX - 1, drawY - 1, 2, 2);
+                graphics.DrawEllipse(Pens.Red, drawX - 2, drawY - 2, 4, 4);
             }
         }
 
