@@ -8,11 +8,13 @@ namespace MontecarloAlgorithms
     {
         public float X;
         public float Y;
+        public bool insideCircle;
 
-        public MPoint(float x, float y)
+        public MPoint(float x, float y, bool insideCircle)
         {
             this.X = x;
             this.Y = y;
+            this.insideCircle = insideCircle;
         }
     }
 }

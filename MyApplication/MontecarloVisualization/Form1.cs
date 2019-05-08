@@ -50,7 +50,11 @@ namespace MontecarloVisualization
             for (int i = 0; i < montecarlo.Points.Count; i++)
             {
                 var cPoint = montecarlo.Points[i];
-                graphics.DrawEllipse(Pens.Blue, cPoint.X * w - 1, cPoint.Y * h - 1, 2, 2);
+
+                float drawX = w / 2 + cPoint.X * w;
+                float drawY = h / 2 + cPoint.Y * h;
+
+                graphics.DrawEllipse(Pens.Blue, drawX - 1, drawY - 1, 2, 2);
             }
         }
 
