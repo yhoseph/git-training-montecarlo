@@ -51,8 +51,8 @@ namespace MontecarloVisualization
             {
                 var cPoint = montecarlo.Points[i];
 
-                float drawX = w / 2 + cPoint.X * w;
-                float drawY = h / 2 + cPoint.Y * h;
+                double drawX = w / 2.0 + cPoint.X * w;
+                double drawY = h / 2.0 + cPoint.Y * h;
 
                 Pen targetPen;
 
@@ -65,7 +65,7 @@ namespace MontecarloVisualization
                     targetPen = Pens.Green;
                 }
 
-                graphics.DrawEllipse(targetPen, drawX - 2, drawY - 2, 4, 4);
+                graphics.DrawEllipse(targetPen, (float)drawX - 2, (float)drawY - 2, 4, 4);
             }
         }
 
