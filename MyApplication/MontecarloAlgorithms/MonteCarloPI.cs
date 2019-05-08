@@ -13,6 +13,7 @@ namespace MontecarloAlgorithms
     public class MonteCarloPI
     {
         private List<MPoint> points;
+        private Random rnd;
         public List<MPoint> Points { get { return points; } }
 
         /// <summary>
@@ -20,6 +21,7 @@ namespace MontecarloAlgorithms
         /// </summary>
         public MonteCarloPI()
         {
+            this.rnd = new Random();
             this.points = new List<MPoint>();
         }
 
@@ -63,7 +65,6 @@ namespace MontecarloAlgorithms
         /// <returns>The random value.</returns>
         private float GenerateRandomCoordinate()
         {
-            Random rnd = new Random();
             return (float)rnd.NextDouble() - 0.5f;
         }
     }
