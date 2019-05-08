@@ -9,11 +9,6 @@ namespace MontecarloAlgorithms
         public float X;
         public float Y;
 
-        public MPoint()
-        {
-            X = Y = 0;
-        }
-
         public MPoint(float x, float y)
         {
             this.X = x;

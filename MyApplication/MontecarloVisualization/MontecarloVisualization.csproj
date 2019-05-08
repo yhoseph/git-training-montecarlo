@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MontecarloAlgorithms\MontecarloAlgorithms.csproj">
+      <Project>{30147076-8838-4338-8689-c3b718057deb}</Project>
+      <Name>MontecarloAlgorithms</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

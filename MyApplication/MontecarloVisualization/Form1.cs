@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MontecarloAlgorithms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,18 +13,25 @@ namespace MontecarloVisualization
 {
     public partial class Form1 : Form
     {
+        MonteCarloPI montecarlo;
+
         public Form1()
         {
+            montecarlo = new MonteCarloPI();
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            montecarlo.GeneratePoint();
+
+            this.Text = $"PI : {montecarlo.GetPI()} ({montecarlo.Points.Count})";
+
             this.picCanvas.Invalidate();
         }
 
@@ -38,6 +46,12 @@ namespace MontecarloVisualization
             int h = this.picCanvas.Height;
 
             graphics.DrawEllipse(Pens.Red, 0, 0, w, h);
+
+            for (int i = 0; i < montecarlo.Points.Count; i++)
+            {
+                var cPoint = montecarlo.Points[i];
+                graphics.DrawEllipse(Pens.Blue, cPoint.X * w - 1, cPoint.Y * h - 1, 2, 2);
+            }
         }
 
         private void picCanvas_Click(object sender, EventArgs e)
