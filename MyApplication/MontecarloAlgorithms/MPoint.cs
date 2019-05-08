@@ -4,7 +4,7 @@
 namespace MontecarloAlgorithms
 {
     /// <summary>
-    /// A points structure.
+    /// The MPoint struct.
     /// </summary>
     public struct MPoint
     {
@@ -33,7 +33,7 @@ namespace MontecarloAlgorithms
         {
             this.X = x;
             this.Y = y;
-            this.insideCircle = insideCircle;
+            this.InsideCircle = insideCircle;
         }
     }
 }
