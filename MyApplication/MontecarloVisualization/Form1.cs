@@ -54,7 +54,18 @@ namespace MontecarloVisualization
                 float drawX = w / 2 + cPoint.X * w;
                 float drawY = h / 2 + cPoint.Y * h;
 
-                graphics.DrawEllipse(Pens.Red, drawX - 2, drawY - 2, 4, 4);
+                Pen targetPen;
+
+                if (cPoint.insideCircle)
+                {
+                    targetPen = Pens.Red;
+                }
+                else
+                {
+                    targetPen = Pens.Green;
+                }
+
+                graphics.DrawEllipse(targetPen, drawX - 2, drawY - 2, 4, 4);
             }
         }
 
