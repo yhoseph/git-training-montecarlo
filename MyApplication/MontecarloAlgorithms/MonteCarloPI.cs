@@ -12,6 +12,9 @@ namespace MontecarloAlgorithms
     /// </summary>
     public class MonteCarloPI
     {
+        /// <summary>
+        /// Internal declaration of points dictionary
+        /// </summary>
         private List<MPoint> points;
         private Random rnd;
         public List<MPoint> Points { get { return points; } }
@@ -27,6 +30,14 @@ namespace MontecarloAlgorithms
 
         /// <summary>
         /// Method to generate a new point.
+
+        /// <summary>
+        /// The public declaration of points.
+        /// </summary>
+        public List<MPoint> Points { get { return points; } }
+
+        /// <summary>
+        /// Use this method to generate a new point.
         /// </summary>
         public void GeneratePoint()
         {
@@ -35,9 +46,9 @@ namespace MontecarloAlgorithms
         }
 
         /// <summary>
-        /// Method to generate PI.
+        /// Returns PI value
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The PI approximation</returns>
         public float GetPI()
         {
             int circleCounter = this.points.Count(x=>x.InsideCircle);
@@ -47,15 +58,26 @@ namespace MontecarloAlgorithms
         }
 
         /// <summary>
-        /// Generates a new random point.
+        /// Constructor
         /// </summary>
-        /// <returns>An instance of MPoint.</returns>
+        public MonteCarloPI()
+        {
+            this.points = new List<MPoint>();
+        }
+
+        /// <summary>
+        /// Generates a new random point
+        /// </summary>
+        /// <returns>The random point</returns>
         private MPoint GenerateRandomPoint()
         {
-            float x = GenerateRandomCoordinate();
-            float y = GenerateRandomCoordinate();
+            float x = GenerateRandomValue();
+            float y = GenerateRandomValue();
 
-            MPoint newOne = new MPoint(x, y, false);
+            double ratio = Math.Sqrt(x * x + y * y);
+            bool insideCircle = ratio <= 0.5;
+
+            MPoint newOne = new MPoint(x, y, insideCircle);
             return newOne;
         }
 
