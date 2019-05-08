@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace MontecarloAlgorithms
+﻿namespace MontecarloAlgorithms
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System;
+
     public class MonteCarloPI
     {
         private List<MPoint> points;
         public List<MPoint> Points { get { return points; } }
-
-        public MonteCarloPI()
-        {
-            this.points = new List<MPoint>();
-        }
 
         public void GeneratePoint()
         {
@@ -28,16 +23,24 @@ namespace MontecarloAlgorithms
             return 4.0f * circleCounter / rectangleCounter;
         }
 
+        public MonteCarloPI()
+        {
+            this.points = new List<MPoint>();
+        }
+
         private MPoint GenerateRandomPoint()
         {
-            float x = GenerateRandomCoordinate();
-            float y = GenerateRandomCoordinate();
+            float x = GenerateRandomValue();
+            float y = GenerateRandomValue();
 
-            MPoint newOne = new MPoint(x, y, false);
+            double ratio = Math.Sqrt(x * x + y * y);
+            bool insideCircle = ratio <= 0.5;
+
+            MPoint newOne = new MPoint(x, y, insideCircle);
             return newOne;
         }
 
-        private float GenerateRandomCoordinate()
+        private float GenerateRandomValue()
         {
             Random rnd = new Random();
             return (float)rnd.NextDouble() - 0.5f;
