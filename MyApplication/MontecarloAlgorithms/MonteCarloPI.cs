@@ -40,7 +40,7 @@ namespace MontecarloAlgorithms
         /// <returns></returns>
         public float GetPI()
         {
-            int circleCounter = this.points.Count(x=>x.insideCircle);
+            int circleCounter = this.points.Count(x=>x.InsideCircle);
             int rectangleCounter = this.points.Count;
 
             return 4.0f * circleCounter / rectangleCounter;
